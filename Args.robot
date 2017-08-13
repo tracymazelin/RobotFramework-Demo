@@ -1,0 +1,3 @@
+--outputdir Demo/Logs
+--variable ENV:prod
+--include Smoke

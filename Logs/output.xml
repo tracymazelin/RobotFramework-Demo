@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generated="20170813 19:50:47.869" generator="Robot 3.0.2 (Python 2.7.13 on darwin)">
+<suite source="/Users/tracymazelin/Sites/RobotFramework/Demo" id="s1" name="Demo">
+<suite source="/Users/tracymazelin/Sites/RobotFramework/Demo/Tests" id="s1-s1" name="Tests">
+<kw type="setup" name="Go To Home Page" library="Common">
+<kw name="Begin Web Test" library="Common">
+<kw name="Open Browser" library="Selenium2Library">
+<doc>Opens a new browser instance to given URL.</doc>
+<arguments>
+<arg>${HOME}</arg>
+<arg>${BROWSER}</arg>
+</arguments>
+<msg timestamp="20170813 19:50:48.596" level="INFO">Opening browser 'Chrome' to base url 'https://zapier.com/'</msg>
+<status status="PASS" endtime="20170813 19:50:54.648" starttime="20170813 19:50:48.596"></status>
+</kw>
+<kw name="Maximize Browser Window" library="Selenium2Library">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" endtime="20170813 19:50:54.928" starttime="20170813 19:50:54.648"></status>
+</kw>
+<kw name="Set Selenium Speed" library="Selenium2Library">
+<doc>Sets the delay in seconds that is waited after each Selenium command.</doc>
+<arguments>
+<arg>${DELAY}</arg>
+</arguments>
+<status status="PASS" endtime="20170813 19:50:54.929" starttime="20170813 19:50:54.928"></status>
+</kw>
+<status status="PASS" endtime="20170813 19:50:54.929" starttime="20170813 19:50:48.596"></status>
+</kw>
+<kw name="Title Should Be" library="Selenium2Library">
+<doc>Verifies that current page title equals `title`.</doc>
+<arguments>
+<arg>The best apps. Better together. - Zapier</arg>
+</arguments>
+<msg timestamp="20170813 19:50:54.936" level="INFO">Page title is 'The best apps. Better together. - Zapier'.</msg>
+<status status="PASS" endtime="20170813 19:50:54.936" starttime="20170813 19:50:54.929"></status>
+</kw>
+<status status="PASS" endtime="20170813 19:50:54.936" starttime="20170813 19:50:48.595"></status>
+</kw>
+<suite source="/Users/tracymazelin/Sites/RobotFramework/Demo/Tests/Home.robot" id="s1-s1-s1" name="Home">
+<test id="s1-s1-s1-t1" name="Verify Home Page Elements">
+<kw name="Check Existence Of Logo" library="Home">
+<kw name="Element Should Be Visible" library="Selenium2Library">
+<doc>Verifies that the element identified by `locator` is visible.</doc>
+<arguments>
+<arg>${imgLogo}</arg>
+</arguments>
+<msg timestamp="20170813 19:50:54.949" level="INFO">Verifying element 'xpath=//*[@id="static-content"]/div/div[1]/div/div[1]' is visible.</msg>
+<status status="PASS" endtime="20170813 19:50:54.999" starttime="20170813 19:50:54.949"></status>
+</kw>
+<kw name="Create Session" library="RequestsLibrary">
+<doc>Create Session: create a HTTP session to a server</doc>
+<arguments>
+<arg>img</arg>
+<arg>https://cdn.zapier.com</arg>
+<arg>disable_warnings=1</arg>
+</arguments>
+<msg timestamp="20170813 19:50:54.999" level="INFO">Creating Session using : alias=img, url=https://cdn.zapier.com, headers={},                     cookies=None, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" endtime="20170813 19:50:55.000" starttime="20170813 19:50:54.999"></status>
+</kw>
+<kw name="Get Request" library="RequestsLibrary">
+<doc>Send a GET request on the session object found using the</doc>
+<arguments>
+<arg>img</arg>
+<arg>/static/1DGcoC/images/frontend/onboarding/zapier-small-orange-logo.png</arg>
+</arguments>
+<assign>
+<var>${response}</var>
+</assign>
+<msg timestamp="20170813 19:50:55.819" level="INFO">Get Request using : alias=img, uri=/static/1DGcoC/images/frontend/onboarding/zapier-small-orange-logo.png, headers=None json=None</msg>
+<msg timestamp="20170813 19:50:55.819" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" endtime="20170813 19:50:55.819" starttime="20170813 19:50:55.000"></status>
+</kw>
+<kw name="Should Be Equal As Integers" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<arguments>
+<arg>${response.status_code}</arg>
+<arg>200</arg>
+<arg>The image returned unexpected status code</arg>
+</arguments>
+<msg timestamp="20170813 19:50:55.820" level="INFO">Argument types are:
+&lt;type 'int'&gt;
+&lt;type 'unicode'&gt;</msg>
+<status status="PASS" endtime="20170813 19:50:55.820" starttime="20170813 19:50:55.819"></status>
+</kw>
+<kw name="Capture Page Screenshot" library="Selenium2Library">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<msg timestamp="20170813 19:50:56.376" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-1.png"&gt;&lt;img src="selenium-screenshot-1.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20170813 19:50:56.377" starttime="20170813 19:50:55.820"></status>
+</kw>
+<status status="PASS" endtime="20170813 19:50:56.377" starttime="20170813 19:50:54.948"></status>
+</kw>
+<tags>
+<tag>Critical</tag>
+<tag>Home</tag>
+<tag>Smoke</tag>
+</tags>
+<status status="PASS" endtime="20170813 19:50:56.377" critical="yes" starttime="20170813 19:50:54.947"></status>
+</test>
+<doc>Verifies elements on the Home Page</doc>
+<status status="PASS" endtime="20170813 19:50:56.379" starttime="20170813 19:50:54.936"></status>
+</suite>
+<kw type="teardown" name="Close All Browsers" library="Selenium2Library">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<status status="PASS" endtime="20170813 19:50:56.450" starttime="20170813 19:50:56.382"></status>
+</kw>
+<status status="PASS" endtime="20170813 19:50:56.451" starttime="20170813 19:50:47.901"></status>
+</suite>
+<status status="PASS" endtime="20170813 19:50:56.454" starttime="20170813 19:50:47.872"></status>
+</suite>
+<statistics>
+<total>
+<stat fail="0" pass="1">Critical Tests</stat>
+<stat fail="0" pass="1">All Tests</stat>
+</total>
+<tag>
+<stat fail="0" pass="1">Critical</stat>
+<stat fail="0" pass="1">Home</stat>
+<stat fail="0" pass="1">Smoke</stat>
+</tag>
+<suite>
+<stat fail="0" id="s1" name="Demo" pass="1">Demo</stat>
+<stat fail="0" id="s1-s1" name="Tests" pass="1">Demo.Tests</stat>
+<stat fail="0" id="s1-s1-s1" name="Home" pass="1">Demo.Tests.Home</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
